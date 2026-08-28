@@ -19,7 +19,7 @@ SLICES = 12
 SPECTROGRAM_WIDTH = 1024
 
 # The slices used by the original MohsradioZ SCPI formula
-SCPI_SLICES = (2, 4, 6, 8, 10)
+SCPI_SLICES = (2, 3, 4, 5, 6, 7, 8, 9, 10, 11)
 
 # RED, PINK, DO, ORANGE, YELLOW, LY, PY
 SCPI_COLOR_INDEXES = (5, 6, 7, 8, 9, 10, 11)
