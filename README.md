@@ -232,14 +232,19 @@ All other colors are normalized against the non-black part of the slice.
 
 ### 4. Pace calculation
 
-SCPI uses slices:
+SCPI uses all slices except SL1 (intro) and SL2 (outro):
 
 ```text
 SL2
+SL3
 SL4
+SL5
 SL6
+SL7
 SL8
+SL9
 SL10
+SL11
 ```
 
 and the higher-energy palette regions:
