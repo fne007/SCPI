@@ -81,11 +81,11 @@ It demonstrates that SCPI measures something different from conventional tempo e
 
 | Artist / Track | Genre | bpm-tag | DeepRhythm | SCPI |
 |---|---|---:|---:|---:|
-| Max Richter — Dream 1 | Ambient / Classical | 141.512 | 80 | **14.73** |
-| Crown & Damon Grey — Moving To The Bassline | House | 124.011 | 123 | **101.75** |
-| Mozart — Laudate Dominum | Classical | 139.370 | 120 | **20.68** |
-| Pixies — Holiday Song | Alternative | 108.821 | 80 | **101.23** |
-| The Scientist — Elasticated | Dub / Reggae | 127.605 | 128 | **65.38** |
+| Max Richter — Dream 1 | Ambient / Classical | 141.512 | 80 | **15.02** |
+| Crown & Damon Grey — Moving To The Bassline | House | 124.011 | 123 | **99.67** |
+| Mozart — Laudate Dominum | Classical | 139.370 | 120 | **19.64** |
+| Pixies — Holiday Song | Alternative | 108.821 | 80 | **98.34** |
+| The Scientist — Elasticated | Dub / Reggae | 127.605 | 128 | **67.07* |
 
 The contrast is intentional.
 
@@ -116,7 +116,7 @@ Max Richter — Dream 1
 
 bpm-tag     : 141.512
 DeepRhythm  : 80
-SCPI        : 14.73
+SCPI        : 15.02
 ```
 
 ```text
@@ -124,7 +124,7 @@ Mozart — Laudate Dominum
 
 bpm-tag     : 139.370
 DeepRhythm  : 120
-SCPI        : 20.68
+SCPI        : 19.64
 ```
 
 A rhythmically dense house track, meanwhile, receives a much higher SCPI value:
@@ -134,7 +134,7 @@ Crown & Damon Grey — Moving To The Bassline
 
 bpm-tag     : 124.011
 DeepRhythm  : 123
-SCPI        : 101.75
+SCPI        : 99.67
 ```
 
 This is the basic idea behind SCPI.
