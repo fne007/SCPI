@@ -13,7 +13,7 @@ import tempfile
 from pathlib import Path
 
 
-VERSION = "0.1.1"
+VERSION = "0.1.2"
 
 SLICES = 12
 SPECTROGRAM_WIDTH = 1024
@@ -23,10 +23,6 @@ SCPI_SLICES = (2, 3, 4, 5, 6, 7, 8, 9, 10, 11)
 
 # RED, PINK, DO, ORANGE, YELLOW, LY, PY
 SCPI_COLOR_INDEXES = (5, 6, 7, 8, 9, 10, 11)
-
-SCPI_OFFSET = 2.0
-SCPI_SCALE = 1.236111111
-
 
 # ----------------------------------------------------------------------
 # Exact original SCPI palette
@@ -571,63 +567,33 @@ def analyse_pixels(
 # ----------------------------------------------------------------------
 
 def calculate_scpi(results):
-    """
-    Original MohsradioZ SCPI formula:
-
-      slices 2,4,6,8,10
-
-      RED
-      PINK
-      DARK_ORANGE
-      ORANGE
-      YELLOW
-      LIGHT_YELLOW
-      PALE_YELLOW
-
-    Average those five slice values,
-    multiply by 1.236111111,
-    add 2.
-    """
-
+    
     selected_values = []
-
+            
     for slice_index in SCPI_SLICES:
-
         warm_colors = sum(
-            results[
-                slice_index
-            ][
-                color_index
-            ]
-            for color_index
-            in SCPI_COLOR_INDEXES
+            results[slice_index][color_index]
+            for color_index in SCPI_COLOR_INDEXES
         )
+        
+        selected_values.append(warm_colors)
+         
+    divisor = len(selected_values) - 3
 
-        selected_values.append(
-            warm_colors
-        )
-
-    average = (
-        sum(selected_values)
-        / len(selected_values)
-    )
-
+    if divisor <= 0:
+        raise ValueError("SCPI requires at least four selected slices")
+            
     scpi = round(
-        SCPI_OFFSET
-        + (
-            average
-            * SCPI_SCALE
-        ),
-        2
-    )
-
+        sum(selected_values) / divisor,
+        2   
+    )           
+            
     return (
         scpi,
         selected_values,
-        average
-    )
-
-
+        scpi    
+    )           
+           
 # ----------------------------------------------------------------------
 # MAIN
 # ----------------------------------------------------------------------
@@ -744,7 +710,6 @@ def main():
         return 1
 
     finally:
-scpi.py 
         try:
             os.unlink(
                 palette_file
