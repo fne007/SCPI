@@ -85,7 +85,7 @@ It demonstrates that SCPI measures something different from conventional tempo e
 | Crown & Damon Grey — Moving To The Bassline | House | 124.011 | 123 | **99.67** |
 | Mozart — Laudate Dominum | Classical | 139.370 | 120 | **19.64** |
 | Pixies — Holiday Song | Alternative | 108.821 | 80 | **98.34** |
-| The Scientist — Elasticated | Dub / Reggae | 127.605 | 128 | **67.07* |
+| The Scientist — Elasticated | Dub / Reggae | 127.605 | 128 | **67.07** |
 
 The contrast is intentional.
 
