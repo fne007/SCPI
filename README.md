@@ -2,6 +2,11 @@
 
 SCPI is a small command-line tool that estimates the **perceived musical pace** of an audio track from its spectral color distribution.
 
+It is
+- an Audio analysis tool
+- a Python audio pace estimator
+- a BPM alternative for playlist sequencing
+
 It is **not a BPM detector**.
 
 Traditional BPM tools attempt to identify a periodic beat or metrical pulse. SCPI instead analyses the spectral structure of the complete recording and produces a numeric pace index.
