@@ -13,14 +13,16 @@ import tempfile
 from pathlib import Path
 
 
-VERSION = "0.1.2"
+VERSION = "0.2.0"
 
 SLICES = 12
 SPECTROGRAM_WIDTH = 1024
 
-# The slices used by the original MohsradioZ SCPI formula
+# The 10 inner slices used for SCPI.
+# SL0 and SL11 are intentionally excluded.
 SCPI_SLICES = range(1, 11)
 
+# Warm spectral colors:
 # RED, PINK, DO, ORANGE, YELLOW, LY, PY
 SCPI_COLOR_INDEXES = (5, 6, 7, 8, 9, 10, 11)
 
@@ -104,7 +106,7 @@ def build_parser():
     parser.add_argument(
         "--details",
         action="store_true",
-        help="show intermediate SCPI slice information"
+        help="show slice values and raw SCPI average"
     )
 
     parser.add_argument(
@@ -566,33 +568,58 @@ def analyse_pixels(
 # ORIGINAL SCPI FORMULA
 # ----------------------------------------------------------------------
 
+# ----------------------------------------------------------------------
+
 def calculate_scpi(results):
-    
+    """
+    Calculate the Spectral Color Pace Index.
+
+    For each selected slice (SL1..SL10), the percentages of the
+    warm spectral colors are summed:
+
+        RED, PINK, DO, ORANGE, YELLOW, LY, PY
+
+    The true arithmetic average over the 10 selected slices gives
+    the raw SCPI percentage in the theoretical range 0..100.
+
+    That raw value is then mapped linearly to the public SCPI scale
+    1..180:
+
+        SCPI = 1 + (raw_average / 100) * 179
+
+    The raw average is kept separate from the scaled SCPI value.
+    """
+
     selected_values = []
-            
+
     for slice_index in SCPI_SLICES:
         warm_colors = sum(
             results[slice_index][color_index]
             for color_index in SCPI_COLOR_INDEXES
         )
-        
-        selected_values.append(warm_colors)
-         
-    divisor = len(selected_values) - 3
 
-    if divisor <= 0:
-        raise ValueError("SCPI requires at least four selected slices")
-            
-    scpi = round(
-        sum(selected_values) / divisor,
-        2   
-    )           
-            
+        selected_values.append(warm_colors)
+
+    if not selected_values:
+        raise ValueError("SCPI requires at least one selected slice")
+
+    # True arithmetic average of SL1..SL10.
+    raw_average = (
+        sum(selected_values)
+        / len(selected_values)
+    )
+
+    # Explicit linear mapping:
+    # raw 0..100 -> SCPI 1..180.
+    scpi = 1 + (
+        raw_average / 100.0
+    ) * 179.0
+
     return (
-        scpi,
+        round(scpi, 2),
         selected_values,
-        scpi    
-    )           
+        round(raw_average, 2)
+    )
            
 # ----------------------------------------------------------------------
 # MAIN
