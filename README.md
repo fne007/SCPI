@@ -15,9 +15,18 @@ This distinction is particularly visible with music where a formal or detected B
 
 For example, a slow classical recording may receive a conventional BPM estimate well above 100 BPM while SCPI produces a much lower value.
 
-## Try the Demo
+<p align="center">
+  <img src="scpi-logo.svg" width="96" alt="SCPI logo">
+</p>
 
-[**Try the live SCPI demo →**](https://scpi.at/)
+<p align="center">
+  <a href="https://scpi.at/">
+    <img
+      src="https://img.shields.io/badge/Try%20the-live%20demo-00b86f?style=for-the-badge&logo=googlechrome&logoColor=ffffff"
+      alt="Try the live SCPI demo"
+    >
+  </a>
+</p>
 
 ---
 
