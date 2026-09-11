@@ -99,7 +99,7 @@ It demonstrates that SCPI measures something different from conventional tempo e
 
 | Artist / Track | Genre | bpm-tag | DeepRhythm | SCPI |
 |---|---|---:|---:|---:|
-| Max Richter — Constellation 1 | Ambient / Classical | 141.512 | 80 | **9.34** |
+| Max Richter — Constellation 1 | Ambient / Classical | 141.512 | 80 | **39.34** |
 | Crown & Damon Grey — Moving To The Bassline | House | 124.011 | 123 | **137.15** |
 | Mozart — Laudate Dominum | Classical | 139.370 | 120 | **23.61** |
 | Pixies — Holiday Song | Alternative | 108.821 | 80 | **130.08** |
@@ -134,7 +134,7 @@ Max Richter — Constellation 1
 
 bpm-tag     : 141.512
 DeepRhythm  : 80
-SCPI        : 9.34
+SCPI        : 39.34
 ```
 
 ```text
