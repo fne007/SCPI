@@ -217,23 +217,6 @@ LIGHT_YELLOW
 PALE_YELLOW
 ```
 
-The exact RGB palette is:
-
-```text
-#000000
-#000055
-#550055
-#5500AA
-#AA0055
-#FF0000
-#FF0055
-#FF5500
-#FFAA00
-#FFFF00
-#FFFF55
-#FFFFAA
-```
-
 ### 3. Temporal slicing
 
 The resulting image is divided into 12 time slices:
