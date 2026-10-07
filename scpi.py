@@ -27,17 +27,17 @@ SCPI_SLICES = range(1, 11)
 SCPI_COLOR_INDEXES = (5, 6, 7, 8, 9, 10, 11)
 
 # ----------------------------------------------------------------------
-# Exact original SCPI palette
+# Updated MohsradioZ SCPI palette (re-brute-force-calculated on 07.10.26) 
 # ----------------------------------------------------------------------
 
 COLORS = [
     (0,   0,   0),    # BLACK
     (0,   0,  85),    # VDB
     (85,  0,  85),    # VDM
-    (85,  0, 170),    # DV
+    (66, 20,  86),    # DV      #421456
     (170, 0,  85),    # DP
     (255, 0,   0),    # RED
-    (255, 0,  85),    # PINK
+    (130, 20, 90),    # PINK    #82145A
     (255, 85,  0),    # DO
     (255, 170, 0),    # ORANGE
     (255, 255, 0),    # YELLOW
@@ -60,20 +60,19 @@ COLOR_NAMES = [
     "PY",
 ]
 
-
 PALETTE_TEXT = """# ImageMagick pixel enumeration: 12,1,255,rgb
 0,0: (  0,  0,  0) #000000 BLACK
 1,0: (  0,  0, 85) #000055 VERY_DARK_BLUE
 2,0: ( 85,  0, 85) #550055 VERY_DARK_MAGENTA
-3,0: ( 85,  0,170) #5500AA DARK_VIOLET
+3,0: ( 66, 20, 86) #421456 DARK_VIOLET
 4,0: (170,  0, 85) #AA0055 DARK_PINK
 5,0: (255,  0,  0) #FF0000 RED
-6,0: (255,  0, 85) #FF0055 PINK
+6,0: (130, 20, 90) #82145A PINK
 7,0: (255, 85,  0) #FF5500 DARK_ORANGE
 8,0: (255,170,  0) #FFAA00 ORANGE
 9,0: (255,255,  0) #FFFF00 YELLOW
 10,0:(255,255, 85) #FFFF55 LIGHT_YELLOW
-11,0: (255,255,170) #FFFFAA PALE_YELLOW
+11,0:(255,255,170) #FFFFAA PALE_YELLOW
 """
 
 
